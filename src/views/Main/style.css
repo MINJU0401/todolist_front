@@ -1,0 +1,46 @@
+#main-wrapper {
+  width: 900px;
+}
+
+.main-date-container {
+  width: 900px;
+  display: flex;
+}
+
+.main-date-badge {
+  border-radius: 20px;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.main-container {
+  margin-top: 24px;
+  display: flex;
+  gap: 20px;
+}
+
+.main-today-box {
+  flex: 1;
+}
+
+.main-box-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.main-todo-box {
+  flex: 1;
+  height: 600px;
+  background-color: rgba(0, 0, 200, 0.5);
+}
+
+.main-box-title {
+  margin: 16px 0;
+  text-align: center;
+
+  font-size: 24px;
+  font-weight: 600;
+}
