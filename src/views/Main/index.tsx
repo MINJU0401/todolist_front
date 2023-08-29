@@ -3,14 +3,25 @@ import './style.css';
 import moment from 'moment';
 import TaskItem from 'components/TaskItem';
 import { Task } from 'types';
+import axios from 'axios';
+import { GetSearchDateResponseDto } from 'apis/response';
 
 export default function Main() {
 
   const [today, setToday] = useState<string>('');
+  const [taskList, setTaskList] = useState<Task[]>([]);
 
   useEffect(() => {    
     const today = moment().format('YYYY-MM-DD');
     setToday(today);
+
+    axios.get(`http://localhost:4000/search/date/${today}`).then(response => {
+      const responseBody: GetSearchDateResponseDto = response.data;
+      const { taskList } = responseBody;
+      setTaskList(taskList);
+    })
+    .catch(error => { });
+
   }, []);
 
   return (
@@ -22,7 +33,7 @@ export default function Main() {
         <div className='main-today-box'>
           <div className='main-box-title'>TODAY</div>
           <div className='main-box-container'>
-            { taskListMock.map((taskItem) => <TaskItem taskItem={taskItem} />) }
+            { taskList.map((taskItem) => <TaskItem taskItem={taskItem} />) }
           </div>
         </div>
         <div className='main-todo-box'>
