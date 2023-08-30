@@ -38,6 +38,30 @@ export default function Main() {
         </div>
         <div className='main-todo-box'>
           <div className='main-box-title'>TO-DO</div>
+          <div className='main-box-container'>
+          <div className='todo-item-card'>
+          <div className='todo-item-main-container'>
+            <div className='todo-item-top'></div>
+            <div className='todo-item-title'>Task 찾기
+            <div className='todo-search-badge'>▼<div className='todo-search-icon'></div></div></div>
+            <div className='todo-item-bottom'></div>
+          </div>
+          </div>
+          <div className='todo-item-card'>
+          <div className='todo-item-main-container'>
+            <div className='todo-item-top'></div>
+            <div className='todo-item-title'>새로운 Task 등록하기</div>
+            <div className='todo-item-bottom'></div>
+          </div>
+          </div>
+          <div className='todo-item-card'>
+          <div className='todo-item-main-container'>
+            <div className='todo-item-top'></div>
+            <div className='todo-item-title'>TO-DO List 조회하기</div>
+            <div className='todo-item-bottom'></div>
+          </div>
+          </div>
+          </div>
         </div>
       </div>
       </div>
