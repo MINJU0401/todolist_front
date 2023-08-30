@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Main from 'views/Main';
 import Post from 'views/Post';
+import Todo from 'views/List/Todo';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />}/>
         <Route path='/post' element={<Post />} />
+        <Route path='/unfinished' element={<Todo />} />
       </Routes>
     </div>
   );

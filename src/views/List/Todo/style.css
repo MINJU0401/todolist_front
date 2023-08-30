@@ -1,0 +1,70 @@
+#list-todo-wrapper {
+  width: 900px;
+}
+
+.list-todo-container {
+  width: 900px;
+  display:flex;
+}
+
+.list-todo-badge {
+  border-radius: 15px 15px 0 0;
+  padding: 12px;
+  width: 150px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center; 
+  display: block;
+  margin: 0 8px 0 0;
+}
+
+.list-completed-badge {
+  border-radius: 15px 15px 0 0;
+  padding: 12px;
+  width: 150px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;  
+  display: block; 
+  margin: 0 8px 0 0;
+}
+
+.list-overdue-badge {
+  border-radius: 15px 15px 0 0;
+  padding: 12px;
+  width: 150px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center; 
+  display: block;
+}
+
+.list-container {
+  margin-top: 24px;
+  display: flex;
+  gap: 20px;
+}
+
+.list-todo-box {
+  flex: 1;
+}
+
+.list-todo-box-container {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 8px;
+}
+
+.task-item {
+  flex-basis: calc(50% - 4px); 
+}
+
+.list-todo-bottom {
+  width: 900px;
+  height: 200px;
+}
