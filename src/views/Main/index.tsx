@@ -65,8 +65,8 @@ export default function Main() {
         </div>
       </div>
       </div>
-  )
-}
+  );
+};
 
 const taskListMock: Task[] = [
   {
@@ -93,4 +93,5 @@ const taskListMock: Task[] = [
     category: '기타',
     status: false
   }
+  
 ];

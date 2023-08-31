@@ -1,0 +1,81 @@
+#post-task-wrapper {  
+  width: 900px;
+}
+
+.post-task-container {
+  width: 900px;
+  justify-content: center; 
+}
+
+.post-box-title {
+  margin: 16px 0 34px 0;
+  display: block;
+  text-align: center;
+
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.post-box-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.post-item-wrapper {
+  display: flex;
+}
+
+.post-title-badge {
+  border-radius: 20px;
+  padding: 8px;
+  width: 80px;
+  height: 20px; 
+  
+  background-color: rgba(0, 0, 0, 0.1);
+  
+  font-size: 16px;  
+  font-weight :400 ;
+  text-align:center ;
+  display: block ;
+  justify-content:center ; 
+  align-items:center ;
+
+  margin: 0 0 0 270px; 
+}
+
+.post-title-input-badge {
+  border-radius: 20px;
+  padding: 8px 30px 8px 10px;
+  margin: 0 0 0 20px;
+  width: 220px; 
+  height: 20px;
+  border: Thin solid rgba(0, 0, 0, 0.3);
+  
+  font-size: 3px;
+  font-weight: 100;
+  color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+
+.post-box-bottom {
+  width: 900px;
+  margin: 25px 0 0 0;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.post-task-button {
+  margin: 8px 8px 8px 8px;
+  border-radius: 7px;
+  border: Thin solid rgba(255, 255, 255, 1);
+  padding: 8px 16px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 255, 255, 1);  
+  font-weight: 500;
+  font-size: 15px;
+  display: flex;
+}

@@ -4,6 +4,8 @@ import './App.css';
 import Main from 'views/Main';
 import Post from 'views/Post';
 import Todo from 'views/List/Todo';
+import Completed from 'views/List/Completed';
+import Overdue from 'views/List/Overdue';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path='/' element={<Main />}/>
         <Route path='/post' element={<Post />} />
         <Route path='/unfinished' element={<Todo />} />
+        <Route path='/finished' element={<Completed />} />
+        <Route path='/passed' element={<Overdue />} />
       </Routes>
     </div>
   );
