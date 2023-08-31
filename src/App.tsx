@@ -6,6 +6,7 @@ import Post from 'views/Post';
 import Todo from 'views/List/Todo';
 import Completed from 'views/List/Completed';
 import Overdue from 'views/List/Overdue';
+import Update from 'views/Update';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />}/>
         <Route path='/post' element={<Post />} />
+        <Route path='/patch' element={<Update />} />
         <Route path='/unfinished' element={<Todo />} />
         <Route path='/finished' element={<Completed />} />
         <Route path='/passed' element={<Overdue />} />
