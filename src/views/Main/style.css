@@ -47,6 +47,11 @@
   border: 1px solid rgba(0, 0, 0, 0.4);
 }
 
+.todo-item-card:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
 .todo-item-main-container {
   padding: 0 32px 0;
 

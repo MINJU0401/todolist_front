@@ -5,11 +5,18 @@ import TaskItem from 'components/TaskItem';
 import { Task } from 'types';
 import axios from 'axios';
 import { GetSearchDateResponseDto } from 'apis/response';
+import { useNavigate } from 'react-router-dom';
 
 export default function Main() {
 
   const [today, setToday] = useState<string>('');
   const [taskList, setTaskList] = useState<Task[]>([]);
+
+  const navigator = useNavigate();
+
+  const onPostTaskClickHandler = () => {
+    navigator('/post');
+  }
 
   useEffect(() => {    
     const today = moment().format('YYYY-MM-DD');
@@ -47,7 +54,7 @@ export default function Main() {
             <div className='todo-item-bottom'></div>
           </div>
           </div>
-          <div className='todo-item-card'>
+          <div className='todo-item-card' onClick={onPostTaskClickHandler}>
           <div className='todo-item-main-container'>
             <div className='todo-item-top'></div>
             <div className='todo-item-title'>새로운 Task 등록하기</div>

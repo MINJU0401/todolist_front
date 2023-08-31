@@ -79,3 +79,8 @@
   font-size: 15px;
   display: flex;
 }
+
+.post-task-button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+} 
