@@ -1,7 +1,51 @@
-import React from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import './style.css';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Update() {
+  const [taskName, setTaskName] = useState<string>('');
+  const [category, setCategory] = useState<string>('일');
+  const [date, setDate] = useState<string>('');
+  const [time, setTime] = useState<string>('');
+
+  const navigator = useNavigate();
+
+  const onTaskNameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const taskName = event.target.value;
+    setTaskName(taskName);
+  }
+
+  const onCategoryChangeHandler = (event: ChangeEvent<HTMLSelectElement>) => {
+    const category = event.target.value;
+    setCategory(category);
+  }
+
+  const onDateChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const date = event.target.value;
+    setDate(date);
+  }
+
+  const onTimeChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const time = event.target.value;
+    setTime(time);
+  }
+/*
+  const onUpdateClickHandler = () => {
+    if (!taskNumber || !taskName || !taskName.trim() || !date || !date.trim() || !time || !time.trim() || !category || !category.trim()) return;
+    const requestBody = {
+      taskNumber,
+      taskName,
+      date,
+      time,
+      category
+    }
+  }
+  axios.patch('http://localhost:4000', requestBody)
+  .then(response => {
+    const { code } = response.
+  })*/
+
   return (
     <div id='update-task-wrapper'>
       <div className='update-task-container'>

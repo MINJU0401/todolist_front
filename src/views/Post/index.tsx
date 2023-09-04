@@ -22,7 +22,6 @@ export default function Post() {
     setCategory(category);
   }
 
-
   const onDateChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const date = event.target.value;
     setDate(date);

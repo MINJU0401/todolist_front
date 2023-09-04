@@ -18,6 +18,10 @@ export default function Main() {
     navigator('/post');
   }
 
+  const onGetTodoTaskListClickHandler = () => {
+    navigator('/unfinished');
+  }
+
   useEffect(() => {    
     const today = moment().format('YYYY-MM-DD');
     setToday(today);
@@ -61,7 +65,7 @@ export default function Main() {
             <div className='todo-item-bottom'></div>
           </div>
           </div>
-          <div className='todo-item-card'>
+          <div className='todo-item-card' onClick={onGetTodoTaskListClickHandler}>
           <div className='todo-item-main-container'>
             <div className='todo-item-top'></div>
             <div className='todo-item-title'>TO-DO List 조회하기</div>

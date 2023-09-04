@@ -17,6 +17,7 @@
   text-align: center; 
   display: block;
   margin: 0 8px 0 0;
+  cursor: pointer;
 }
 
 .list-completed-badge {
@@ -30,6 +31,7 @@
   text-align: center;  
   display: block; 
   margin: 0 8px 0 0;
+  cursor: pointer;
 }
 
 .list-overdue-badge {
@@ -42,6 +44,7 @@
   font-weight: 600;
   text-align: center; 
   display: block;
+  cursor: pointer;
 }
 
 .list-container {
