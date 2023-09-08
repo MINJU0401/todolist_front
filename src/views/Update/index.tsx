@@ -1,14 +1,15 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useState, useEffect } from 'react'
 import './style.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Update() {
+  const [number, setNumber] = useState<number>();
   const [taskName, setTaskName] = useState<string>('');
   const [category, setCategory] = useState<string>('일');
   const [date, setDate] = useState<string>('');
   const [time, setTime] = useState<string>('');
-
+  
   const navigator = useNavigate();
 
   const onTaskNameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -30,21 +31,29 @@ export default function Update() {
     const time = event.target.value;
     setTime(time);
   }
-/*
+
+  const onCancelClickHandler = () => {
+    navigator('/');
+  }
+
   const onUpdateClickHandler = () => {
-    if (!taskNumber || !taskName || !taskName.trim() || !date || !date.trim() || !time || !time.trim() || !category || !category.trim()) return;
+    if (!number || !taskName || !taskName.trim() || !date || !date.trim() || !time || !time.trim() || !category || !category.trim()) return;
     const requestBody = {
-      taskNumber,
+      number,
       taskName,
       date,
       time,
       category
     }
-  }
   axios.patch('http://localhost:4000', requestBody)
   .then(response => {
-    const { code } = response.
-  })*/
+    const { code } = response.data;
+    if (code !== 'SU') return;
+    alert('수정에 성공했습니다.');
+    navigator('/');
+  })
+
+}
 
   return (
     <div id='update-task-wrapper'>
@@ -52,32 +61,34 @@ export default function Update() {
         <div className='update-box-title'>Task 수정</div>
         <div className='update-box-container'>
           <div className='update-item-wrapper'>
+          <input type="hidden" value={number} />
           <div className='update-title-badge'>내용</div>
           <div className='update-title-input-badge'>
-            <input type="text" /></div></div>
+            <input type="text" value={taskName} onChange={onTaskNameChangeHandler} /></div></div>
           <div className='update-item-wrapper'>
           <div className='update-title-badge'>카테고리</div>
           <div className='update-title-input-badge'>
-          <select name="category">
+          <select name="category" value={category} onChange={onCategoryChangeHandler} >
                 <option value="일">일</option>
                 <option value="약속">약속</option>
                 <option value="기타">기타</option>
-              </select></div></div>
+              </select>
+            </div></div>
           <div className='update-item-wrapper'>
           <div className='update-title-badge'>날짜</div>
           <div className='update-title-input-badge'>
-            <input type="date" /></div></div>
+            <input type="date" value={date} onChange={onDateChangeHandler} /></div></div>
           <div className='update-item-wrapper'>
           <div className='update-title-badge'>시간</div>
           <div className='update-title-input-badge'>
-            <input type = "time"/></div>
+            <input type = "time" value={time} onChange={onTimeChangeHandler} /></div>
         </div>
         </div>
         <div className='update-box-bottom'>
-          <button className='update-task-button'>수정</button>
-          <button className='update-task-button'>취소</button>
+          <button className='update-task-button' onClick={onUpdateClickHandler}>수정</button>
+          <button className='update-task-button' onClick={onCancelClickHandler}>취소</button>
         </div>
         </div>
         </div>
   )
-}
+  }

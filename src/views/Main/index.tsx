@@ -14,15 +14,7 @@ export default function Main() {
 
   const navigator = useNavigate();
 
-  const onPostTaskClickHandler = () => {
-    navigator('/post');
-  }
-
-  const onGetTodoTaskListClickHandler = () => {
-    navigator('/unfinished');
-  }
-
-  useEffect(() => {    
+  const getTaskList = () => {
     const today = moment().format('YYYY-MM-DD');
     setToday(today);
 
@@ -32,7 +24,25 @@ export default function Main() {
       setTaskList(taskList);
     })
     .catch(error => { });
+  }
 
+  const onPostTaskClickHandler = () => {
+    navigator('/post');
+  }
+
+  const onGetTodoTaskListClickHandler = () => {
+    navigator('/unfinished');
+  }
+
+  const onChangeStatus = (number: number) => {
+    axios.patch('http://localhost:4000/update', { number })
+    .then(() => {
+      getTaskList();
+    });
+  }
+
+  useEffect(() => {    
+    getTaskList();
   }, []);
 
   return (
@@ -44,7 +54,7 @@ export default function Main() {
         <div className='main-today-box'>
           <div className='main-box-title'>TODAY</div>
           <div className='main-box-container'>
-            { taskList.map((taskItem) => <TaskItem taskItem={taskItem} />) }
+            { taskList.map((taskItem) => <TaskItem taskItem={taskItem} onClick={onChangeStatus} />) }
           </div>
         </div>
         <div className='main-todo-box'>
