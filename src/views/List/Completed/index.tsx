@@ -23,6 +23,31 @@ export default function Completed (){
   const onGetPassedTaskListClickHandler = () => {
     navigator('/passed');
   }
+  
+  const onPostTaskClickHandler = () => {
+    navigator('/post')
+  }
+
+  const onPatchTaskClickHandler = () => {
+    axios.patch('http://localhost:4000/update', {})
+    navigator('/patch')
+  }
+
+  const onDeleteTaskClickHandler = () => {
+    navigator('/delete')
+  }
+
+  const onChangeStatus = (number: number) => {
+    axios.patch('http://localhost:4000/update', { number })
+    .then(() => {
+      axios.get('http://localhost:4000/finished').then(response => {
+        const responseBody: GetFinishedTaskListResponseDto = response.data;
+        const { taskList } = responseBody;
+        setTaskList(taskList);
+      })
+      .catch(error => { });
+    })
+  }
 
   useEffect(() => {
 
@@ -40,11 +65,14 @@ export default function Completed (){
       <span className='list-completed-todo-badge' onClick={onGetTodoTaskListClickHandler}>할 일 (TO-DO)</span>
       <span className='list-completed-completed-badge' onClick={onGetFinishedTaskListClickHandler}>한 일 (Completed)</span>
       <span className='list-completed-overdue-badge' onClick={onGetPassedTaskListClickHandler}>안한 일 (Overdue)</span>
+      <div className='list-completed-post-icon' onClick={onPostTaskClickHandler} />
+      <div className='list-completed-patch-icon' onClick={onPatchTaskClickHandler} />
+      <div className='list-completed-delete-icon'/>
       </div>
       <div className='list-container'>
         <div className='list-completed-box'>
           <div className='list-completed-box-container'>
-            { taskList.map((taskItem) => <div className='task-item'><TaskItem taskItem={taskItem} /></div>) }
+            { taskList.map((taskItem) => <div className='task-item'><TaskItem taskItem={taskItem} onClick={onChangeStatus} /></div>) }
           </div>
         </div>
     </div>    

@@ -13,21 +13,31 @@
 }
 
 .task-item-main-container {
-  padding: 8px 32px 0;
-
+  padding: 8px 32px;
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
+.title-and-checkbox {
+  display: flex;
+  align-items: center; 
+}
+
+.task-item-radio {
+   margin-right:10px; 
+}
+
 .task-item-title {
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 500px;
+  margin-left: 10px; 
 }
 
 .task-item-date {
   color: rgba(0, 0, 0, 0.7);
   font-size: 16px;
+  margin-left: 40px;
 }
 
 .task-item-bottom {

@@ -4,7 +4,7 @@
 
 .list-completed-container {
   width: 900px;
-  display:flex;
+  display: flex;
 }
 
 .list-completed-todo-badge {
@@ -45,6 +45,45 @@
   text-align: center; 
   display: block;
   cursor: pointer;
+}
+
+.list-completed-post-icon {
+  background-image: url(/src/views/List/image/post_task.png);
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  margin: 0 0 0 280px;
+  padding: 6px 4px 6px 4px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+}
+
+.list-completed-patch-icon {
+  background-image: url(/src/views/List/image/update_task.png);
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  margin: 0 0 0 15px;
+  padding: 6px 4px 6px 4px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+}
+
+.list-completed-delete-icon {
+  background-image: url(/src/views/List/image/delete_task.png);
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  padding: 6px 4px 6px 4px;
+  margin: 0 0 0 15px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  float: right;
 }
 
 .list-container {

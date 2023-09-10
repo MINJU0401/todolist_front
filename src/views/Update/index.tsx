@@ -12,6 +12,20 @@ export default function Update() {
   
   const navigator = useNavigate();
 
+  const { taskId } = useParams<{ taskId: string }>();
+
+  useEffect(() => {
+    axios.get(`http://localhost:4000/patch/${taskId}`).then(response => {
+      const { number, taskName, date, time, category } = response.data;
+      setNumber(number);
+      setTaskName(taskName);
+      setDate(date);
+      setTime(time);
+      setCategory(category);
+    });
+  }, [taskId]);
+  
+
   const onTaskNameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const taskName = event.target.value;
     setTaskName(taskName);
