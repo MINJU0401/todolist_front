@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Overdue (){
 
   const [taskList, setTaskList] = useState<Task[]>([]);
+  const [selectedTaskNumber, setSelectedTaskNumber] = useState<number | null>(null);
 
   const navigator = useNavigate();
 
@@ -29,8 +30,11 @@ export default function Overdue (){
   }
 
   const onPatchTaskClickHandler = () => {
-    axios.patch('http://localhost:4000/update', {})
-    navigator('/patch')
+    if (selectedTaskNumber === null) {
+      alert('수정할 Task를 선택하세요.');
+      return;
+    }
+    navigator(`/patch/${selectedTaskNumber}`);
   }
 
   const onDeleteTaskClickHandler = () => {
@@ -72,7 +76,11 @@ export default function Overdue (){
       <div className='list-container'>
         <div className='list-overdue-box'>
           <div className='list-overdue-box-container'>
-            { taskList.map((taskItem) => <div className='task-item'><TaskItem taskItem={taskItem} onClick={onChangeStatus} /></div>) }
+            { taskList.map((taskItem) => (
+            <div className='task-item'>
+              <TaskItem taskItem={taskItem} onClick={onChangeStatus} selectedTaskNumber={selectedTaskNumber} setSelectedTaskNumber={setSelectedTaskNumber} />
+              </div>
+              )) }
           </div>
         </div>
     </div>    

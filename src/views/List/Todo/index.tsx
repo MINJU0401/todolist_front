@@ -79,7 +79,7 @@ export default function Todo() {
           <div className='list-todo-box-container'>
           {taskList.map((taskItem) => ( 
           <div className='task-item'> 
-          <TaskItem taskItem={taskItem} onClick={onChangeStatus} selectedTaskNumber={selectedTaskNumber} setSelectedTaskNumber={setSelectedTaskNumber}  />
+          <TaskItem taskItem={taskItem} onClick={onChangeStatus} selectedTaskNumber={selectedTaskNumber} setSelectedTaskNumber={setSelectedTaskNumber} />
           </div>
           ))}
         </div>

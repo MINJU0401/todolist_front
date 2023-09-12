@@ -40,6 +40,32 @@
   margin-left: 40px;
 }
 
+.overdue-task-title {
+  font-size: 20px;
+  font-weight: 500px;
+  margin-left: 10px; 
+  color: rgba(230, 7, 7, 1);
+}
+
+.overdue-task-date {
+  color: rgba(230, 7, 7, 1);
+  font-size: 16px;
+  margin-left: 40px;
+}
+
+.finished-task-title {
+  color: rgba(211, 211, 211, 1);
+  font-size: 20px;
+  font-weight: 500px;
+  margin: 0;
+}
+
+.finished-task-date {
+  color: rgba(211, 211, 211, 1);
+  font-size: 16px;
+  margin: 0;
+}
+
 .task-item-bottom {
   padding: 8px 16px;
   display: flex;

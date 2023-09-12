@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Completed (){
 
   const [taskList, setTaskList] = useState<Task[]>([]);
+  const [selectedTaskNumber, setSelectedTaskNumber] = useState<number | null>(null);
 
   const navigator = useNavigate();
 
@@ -29,10 +30,13 @@ export default function Completed (){
   }
 
   const onPatchTaskClickHandler = () => {
-    axios.patch('http://localhost:4000/update', {})
-    navigator('/patch')
+    if (selectedTaskNumber === null) {
+      alert('수정할 Task를 선택하세요.');
+      return;
+    }
+    navigator(`/patch/${selectedTaskNumber}`);
   }
-
+  
   const onDeleteTaskClickHandler = () => {
     navigator('/delete')
   }
@@ -72,7 +76,11 @@ export default function Completed (){
       <div className='list-container'>
         <div className='list-completed-box'>
           <div className='list-completed-box-container'>
-            { taskList.map((taskItem) => <div className='task-item'><TaskItem taskItem={taskItem} onClick={onChangeStatus} /></div>) }
+            { taskList.map((taskItem) => (
+            <div className='task-item'>
+              <TaskItem taskItem={taskItem} onClick={onChangeStatus} selectedTaskNumber={selectedTaskNumber} setSelectedTaskNumber={setSelectedTaskNumber} />
+              </div>
+              )) }
           </div>
         </div>
     </div>    

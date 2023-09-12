@@ -2,28 +2,29 @@ import React, { ChangeEvent, useState, useEffect } from 'react'
 import './style.css';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import GetTaskResponseDto from 'apis/response/get-task.dto';
 
 export default function Update() {
   const [number, setNumber] = useState<number>();
   const [taskName, setTaskName] = useState<string>('');
-  const [category, setCategory] = useState<string>('일');
+  const [category, setCategory] = useState<string>('');
   const [date, setDate] = useState<string>('');
   const [time, setTime] = useState<string>('');
   
   const navigator = useNavigate();
 
-  const { taskId } = useParams<{ taskId: string }>();
+  const { taskNumber } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/patch/${taskId}`).then(response => {
-      const { number, taskName, date, time, category } = response.data;
+    axios.get(`http://localhost:4000/task/${taskNumber}`).then(response => {
+      const { number, taskName, date, time, category } = response.data as GetTaskResponseDto;
       setNumber(number);
       setTaskName(taskName);
       setDate(date);
       setTime(time);
       setCategory(category);
     });
-  }, [taskId]);
+  }, [taskNumber]);
   
 
   const onTaskNameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {

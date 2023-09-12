@@ -11,6 +11,7 @@ export default function Main() {
 
   const [today, setToday] = useState<string>('');
   const [taskList, setTaskList] = useState<Task[]>([]);
+  const [selectedTaskNumber, setSelectedTaskNumber] = useState<number | null>(null);
 
   const navigator = useNavigate();
 
@@ -54,7 +55,8 @@ export default function Main() {
         <div className='main-today-box'>
           <div className='main-box-title'>TODAY</div>
           <div className='main-box-container'>
-            { taskList.map((taskItem) => <TaskItem taskItem={taskItem} onClick={onChangeStatus} />) }
+            { taskList.map((taskItem) => (
+            <TaskItem taskItem={taskItem} onClick={onChangeStatus} selectedTaskNumber={selectedTaskNumber} setSelectedTaskNumber={setSelectedTaskNumber} />)) }
           </div>
         </div>
         <div className='main-todo-box'>

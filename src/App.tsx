@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Main />}/>
         <Route path='/post' element={<Post />} />
-        <Route path='/patch' element={<Update />} />
+        <Route path='/patch/:taskNumber' element={<Update />} />
         <Route path='/unfinished' element={<Todo />} />
         <Route path='/finished' element={<Completed />} />
         <Route path='/passed' element={<Overdue />} />
